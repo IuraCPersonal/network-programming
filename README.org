@@ -16,22 +16,22 @@ All the solutions are written in =Python= or =Elixir=.
 
 ** Progress
 
-**** Lab 01 - Restaurant Simulation
+*** Lab 01 - Restaurant Simulation
 
-***** Checkpoints Submission
+**** Checkpoints Submission
 
 ****** TODO  40% Checkpoint -> 1 week
 ****** TODO  70% Checkpoint -> 1 week
 ****** TODO 100% Checkpoint -> 1 week
 
-***** The Meat of The Problem
+**** The Meat of The Problem
 
 The purpose of this task is for you to write a somewhat realistic simulation of how a restaurant works.
 
 The general idea is that you have =Dining hall= and =Kitchen=. The =Dining hall= generates =orders= and gives these orders to the =Kitchen= which prepares them and returns prepared
 orders back to the =Dining hall=.
 
-***** System components
+**** System components
 
 First of all you have to break down your system into components. The main 2 components are:
 
@@ -40,11 +40,11 @@ First of all you have to break down your system into components. The main 2 comp
  
 Each component, the Dinning Hall and the Kitchen in our case will represent a dedicated web server. The Dinning Hall and the Kitchen have to communicate with each other over the network using HTTP protocol.
 
-** Communication and messages format (Communication protocol)
+**** Communication and messages format (Communication protocol)
 
 Your =Dinning Hall= and =Kitchen= API and requests payload should strictly follow defined format and configuration:
 
-*** Kitchen
+***** Kitchen
 
 #+begin_example
 Endpoint: /order
@@ -61,7 +61,7 @@ Payload:
 }
 #+end_example
 
-*** Dining Hall
+***** Dining Hall
 
 #+begin_example
 Endpoint: /distribution
@@ -97,7 +97,7 @@ Payload:
 }
 #+end_example
 
-** Reputation system
+**** Reputation system
 
 Based on your implementation, the restaurant simulation will get a reputation, based on all orders prepared during the simulation. It indicates the success of your implementation.
 
@@ -107,7 +107,7 @@ After serving prepared order, you have to stop order timer and calculate order t
 Order_total_preparing_time = order_pick_up_timestamp - order_serving_timestamp
 #+end_example
 
-** Grading
+**** Grading
 
 Your laboratory work grade will be calculated based on your checkpoints grades and your simulation average rating. It will be calculated according the formula.
 
