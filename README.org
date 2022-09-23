@@ -1,8 +1,14 @@
-#+TITLE: Network Programming Laboratory Works
+#+TITLE: NETWORK PROGRAMMING LABORATORY WORKS
 #+AUTHOR: FCIM FAF-203 Cius Iurie
+#+OPTIONS: toc:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-** Introduction
+** TABLE OF CONTENTS :toc:
+  - [[#introduction][INTRODUCTION]]
+  - [[#progress][PROGRESS]]
+  - [[#contact][CONTACT]]
+
+** INTRODUCTION
 
 *** About Course
 
@@ -12,34 +18,35 @@ The overall objective of the course is for students to gain an insight into the 
 
 This repository contains homework assignments and laboratory works for the =PR= course here at =TUM FCIM=.
 
-All the solutions are written in =Python= or =Elixir=.
+All the solutions are written in =Python=.
 
-** Progress
+** PROGRESS
 
-*** Lab 01 - Restaurant Simulation
+*** LABORATORY WORK 1
 
 **** Checkpoints Submission
 
-****** TODO  40% Checkpoint -> 1 week
-****** TODO  70% Checkpoint -> 1 week
-****** TODO 100% Checkpoint -> 1 week
+| Checkpoint | Status        | Grade | Branch              |
+|------------+---------------+-------+---------------------|
+|        40% | =DONE=        | 9     | [[https://github.com/IuraCPersonal/dining-hall-component/tree/wip-dh40-checkpoint][wip-dh40-checkpoint]] |
+|        70% | =IN PROGRESS= | -     |                     |
+|       100% | =TODO=        | -     |                     |
 
 **** The Meat of The Problem
 
 The purpose of this task is for you to write a somewhat realistic simulation of how a restaurant works.
 
-The general idea is that you have =Dining hall= and =Kitchen=. The =Dining hall= generates =orders= and gives these orders to the =Kitchen= which prepares them and returns prepared
-orders back to the =Dining hall=.
+The general idea is that you have =Dining hall= and =Kitchen=. The =Dining hall= generates =orders= and gives these orders to the =Kitchen= which prepares them and returns prepared orders back to the =Dining hall=.
 
 **** System components
 
 First of all you have to break down your system into components. The main 2 components are:
 
-+ [[https://github.com/IuraCPersonal/dining-hall-component][Dinning Hall]]
-+ [[https://github.com/IuraCPersonal/kitchen-component][Kitchen]]
++ [[https://github.com/IuraCPersonal/dining-hall-component][DINING HALL]]
++ [[https://github.com/IuraCPersonal/kitchen-component][KITCHEN]]
  
 Each component, the Dinning Hall and the Kitchen in our case will represent a dedicated web server. The Dinning Hall and the Kitchen have to communicate with each other over the network using HTTP protocol.
-o
+
 **** Communication and messages format (Communication protocol)
 
 Your =Dinning Hall= and =Kitchen= API and requests payload should strictly follow defined format and configuration:
@@ -124,8 +131,8 @@ It is based on the 0 to 5 ⭐ system, 0 being the worst rating, and 5 - the high
 | max-wait * 1.2 |  3  |
 | max-wait * 1.3 |  2  |
 | max-wait * 1.4 |  1  |
-o
-** Contact
+
+** CONTACT
 
 If you have any question, please contact me through email: =iurie.cius@isa.utm.md=.
 
