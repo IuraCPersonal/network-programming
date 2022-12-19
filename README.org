@@ -3,136 +3,50 @@
 #+OPTIONS: toc:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-** TABLE OF CONTENTS :toc:
-  - [[#introduction][INTRODUCTION]]
-  - [[#progress][PROGRESS]]
-  - [[#contact][CONTACT]]
+** 👋 TABLE OF CONTENTS :toc:
+  - [[#introduction][👇 INTRODUCTION]]
+  - [[#progress][📈 PROGRESS]]
+  - [[#contact][📮 CONTACT]]
 
-** INTRODUCTION
+** 👇 INTRODUCTION
 
-*** About Course
+*** 📕 ABOUT
 
 The overall objective of the course is for students to gain an insight into the techniques of network programming, to understand the direction in which this field is evolving and what are the points of reference in the coming years, understand the necessary basics and be able to apply the knowledge obtained in practice when creating a data transfer system.
 
-*** About this Repository
+*** 🐱‍💻 ABOUT THIS REPOSITORY
 
 This repository contains homework assignments and laboratory works for the =PR= course here at =TUM FCIM=.
 
 All the solutions are written in =Python=.
 
-** PROGRESS
+** 📈 PROGRESS
 
-*** LABORATORY WORK 1
+*** LABORATORY WORK 1 ✔
 
-**** Checkpoints Submission
-
-| Checkpoint | Status        | Grade | Branch              |
+| Checkpoint | Status | Kitchen | Dining Hall         |
 |------------+---------------+-------+---------------------|
-|        40% | =DONE=        | 9     | [[https://github.com/IuraCPersonal/dining-hall-component/tree/wip-dh40-checkpoint][wip-dh40-checkpoint]] |
-|        70% | =IN PROGRESS= | -     |                     |
-|       100% | =TODO=        | -     |                     |
+|        40% | =DONE= | [[https://github.com/IuraCPersonal/kitchen-component/tree/wip-k40-checkpoint][wip-k40-checkpoint]] | [[https://github.com/IuraCPersonal/dining-hall-component/tree/wip-dh40-checkpoint][wip-dh40-checkpoint]]  |
+|        70% | =DONE= | =-= | [[https://github.com/IuraCPersonal/dining-hall-component/tree/wip-dh70-checkpoint][wip-dh70-checkpoint]]  |
+|       100% | =DONE= | [[https://github.com/IuraCPersonal/kitchen-component/tree/wip-k100-checkpoint][wip-k100-checkpoint]] | [[https://github.com/IuraCPersonal/dining-hall-component/tree/wip-dh100 -checkpoint][wip-dh100-checkpoint]]  |
 
-**** The Meat of The Problem
+*** LABORATORY WORK 2 🚩
 
-The purpose of this task is for you to write a somewhat realistic simulation of how a restaurant works.
+| Checkpoint | Status | Kitchen | Dining Hall | Client | Food Ordering |
+|------------+--------+---------+-------------+--------+---------------|
+|        40% | =DONE= | [[https://github.com/IuraCPersonal/kitchen-component/tree/wip-k140-checkpoint][wip-k140-checkpoint]]  | =-=                              | [[https://github.com/IuraCPersonal/client-component/tree/wip-cs40-checkpoint][wip-cs40-checkpoint]] | [[https://github.com/IuraCPersonal/restaurant-aggregator-component/tree/wip-ra40-checkpoint][wip-ra40-checkpoint]]        |
+|        70% | =DONE= | [[https://github.com/IuraCPersonal/kitchen-component/tree/wip-k170-checkpoint][wip-k170-checkpoint]]  | [[https://github.com/IuraCPersonal/dining-hall-component/tree/wip-dh170-checkpoint][wip-dh170-checkpoint]]       | [[https://github.com/IuraCPersonal/client-component/tree/wip-cs70-checkpoint][wip-cs70-checkpoint]] | [[https://github.com/IuraCPersonal/restaurant-aggregator-component/tree/wip-ra70-checkpoint][wip-ra70-checkpoint]]        |
+|       100% | =WIP=  | =-=  | =-=  | =-= | =-= |
 
-The general idea is that you have =Dining hall= and =Kitchen=. The =Dining hall= generates =orders= and gives these orders to the =Kitchen= which prepares them and returns prepared orders back to the =Dining hall=.
+*** [[https://github.com/IuraCPersonal/distributed-datastore/tree/main][LABORATORY WORK 3]] ✔
 
-**** System components
+| Checkpoint | Status | Distributed Datastore |
+|------------+--------+-----------------------|
+| 40%        | =DONE= | =-=                |
+| 70%        | =DONE= | [[https://github.com/IuraCPersonal/distributed-datastore/tree/wip-db-70-cp][wip-db-70-cp]]                |
+| 100%       | =DONE= | [[https://github.com/IuraCPersonal/distributed-datastore/tree/wip-ds-100-checkpoint][wip-ds-100-cp]]                |
 
-First of all you have to break down your system into components. The main 2 components are:
 
-+ [[https://github.com/IuraCPersonal/dining-hall-component][DINING HALL]]
-+ [[https://github.com/IuraCPersonal/kitchen-component][KITCHEN]]
- 
-Each component, the Dinning Hall and the Kitchen in our case will represent a dedicated web server. The Dinning Hall and the Kitchen have to communicate with each other over the network using HTTP protocol.
-
-**** Communication and messages format (Communication protocol)
-
-Your =Dinning Hall= and =Kitchen= API and requests payload should strictly follow defined format and configuration:
-
-***** Kitchen
-
-#+begin_example
-Endpoint: /order
-Method: POST
-Payload:
-{
-    "order_id": 1,
-    "table_id": 1,
-    "waiter_id": 1,
-    "items": [ 3, 4, 4, 2 ],
-    "priority": 3,
-    "max_wait": 45,
-    "pick_up_time": 1631453140 // UNIX timestamp
-}
-#+end_example
-
-***** Dining Hall
-
-#+begin_example
-Endpoint: /distribution
-Method: POST
-Payload:
-{
-    "order_id": 1,
-    "table_id": 1,
-    "waiter_id": 1,
-    "items": [ 3, 4, 4, 2 ],
-    "priority": 3,
-    "max_wait": 45,
-    "pick_up_time": 1631453140 // UNIX timestamp
-    "cooking_time": 65
-    "cooking_details": [
-        {
-	    "food_id": 3,
-	        "cook_id": 1,
-        },
-        {
-            "food_id": 4,
-                "cook_id": 1,
-        },
-        {
-            "food_id": 4,
-            "cook_id": 2,
-        },
-        {
-            "food_id": 2,
-            "cook_id": 3,
-        },
-    ]
-}
-#+end_example
-
-**** Reputation system
-
-Based on your implementation, the restaurant simulation will get a reputation, based on all orders prepared during the simulation. It indicates the success of your implementation.
-
-After serving prepared order, you have to stop order timer and calculate order total preparing time.
-
-#+begin_example
-Order_total_preparing_time = order_pick_up_timestamp - order_serving_timestamp
-#+end_example
-
-**** Grading
-
-Your laboratory work grade will be calculated based on your checkpoints grades and your simulation average rating. It will be calculated according the formula.
-
-#+begin_example
-Grade = 0.5 * (0.4 * 40% check grade + 0.3 * 70% check grade + 0.3 * 100% check grade) + simulation average rating
-#+end_example
-
-It is based on the 0 to 5 ⭐ system, 0 being the worst rating, and 5 - the highest. How you get the assigned the stars, you might ask? Well, since we can't really give it a taste test, what will define the number of stars given to each order would be the time-frame it took to complete.
-
-|   Time Frame   | >⭐ |
-|----------------+-----|
-|   < max-wait   |  5  |
-| max-wait * 1.1 |  4  |
-| max-wait * 1.2 |  3  |
-| max-wait * 1.3 |  2  |
-| max-wait * 1.4 |  1  |
-
-** CONTACT
+** 📮 CONTACT
 
 If you have any question, please contact me through email: =iurie.cius@isa.utm.md=.
-
